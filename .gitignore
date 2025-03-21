@@ -174,3 +174,12 @@ cython_debug/
 .pypirc
 
 /raw_files
+/saved_models
+/LLaMA-Factory
+**/logs
+**/training_logs/
+**/datasets/
+**/adapter_model.safetensors
+**/tokenizer.json
+**/optimizer.pt
+**/*.pyc

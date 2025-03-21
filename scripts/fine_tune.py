@@ -33,7 +33,7 @@ except AssertionError:
 
 CURRENT_DIR = Path.cwd()
 AMR_DIR = CURRENT_DIR.parent
-DATASET_DIR = AMR_DIR / "dataset_json"
+DATASET_DIR = AMR_DIR / "datasets"
 
 #ERC_DIR = FT_DIR.parent
 LLAMA_FACTORY_DIR = AMR_DIR / "LLaMA-Factory"
