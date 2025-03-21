@@ -31,4 +31,6 @@ Example:
 
 """
 
+NOTE: add the paragraph point to this prompt. i.e. only arguments in the same paragraph can be related.
+
 -----------------------------------------------------------------------------------------------------------

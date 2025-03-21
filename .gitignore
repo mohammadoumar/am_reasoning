@@ -183,3 +183,5 @@ cython_debug/
 **/tokenizer.json
 **/optimizer.pt
 **/*.pyc
+
+/FS150T
