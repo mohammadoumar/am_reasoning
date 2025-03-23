@@ -40,7 +40,7 @@ LLAMA_FACTORY_DIR = AMR_DIR / "LLaMA-Factory"
 
 BASE_MODEL = "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit"
 LOGGING_DIR = AMR_DIR / "training_logs"
-OUTPUT_DIR = AMR_DIR / "saved_models" / f"""pe_pipeline_{BASE_MODEL.split("/")[1]}"""
+OUTPUT_DIR = AMR_DIR / "saved_models" / f"""pe_pipeline_prompt2_{BASE_MODEL.split("/")[1]}"""
 
 
 
@@ -49,8 +49,8 @@ OUTPUT_DIR = AMR_DIR / "saved_models" / f"""pe_pipeline_{BASE_MODEL.split("/")[1
 
 # # *** TRAIN/TEST DATASET NAME/FILENAME *** #
 
-train_dataset_name = f"""pe_pipeline_train.json"""
-test_dataset_name = f"""pe_pipeline_test.json"""
+train_dataset_name = f"""pe_pipeline_prompt2_train.json"""
+test_dataset_name = f"""pe_pipeline_prompt2_test.json"""
 
 train_dataset_file = DATASET_DIR / train_dataset_name
 test_dataset_file = DATASET_DIR / test_dataset_name
@@ -86,7 +86,7 @@ with open(os.path.join(LLAMA_FACTORY_DIR, "data/dataset_info.json"), "w") as jso
 
 # # ************************** TRAIN MODEL ******************************#
 
-NB_EPOCHS = 5
+NB_EPOCHS = 2
 
 args = dict(
     
