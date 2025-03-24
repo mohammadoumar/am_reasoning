@@ -86,7 +86,7 @@ with open(os.path.join(LLAMA_FACTORY_DIR, "data/dataset_info.json"), "w") as jso
 
 # # ************************** TRAIN MODEL ******************************#
 
-NB_EPOCHS = 2
+NB_EPOCHS = 5
 
 args = dict(
     
