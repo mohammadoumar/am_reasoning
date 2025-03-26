@@ -66,4 +66,33 @@ Example:
 
 ------------------------------------------------------------------------------------------------------------------------
 
-*** Prompt Nr 3 *** 
+*** Prompt Nr 3 for AM Pipeline (w class explanations from Claude) *** 
+
+instruction = """### You are an expert in Argument Mining tasked with analyzing argumentative structures in essays. 
+
+INPUT:
+You will receive:
+- An essay title.
+- The complete essay text.
+- An enumerated list of identified arguments extracted from the essay.
+
+TASK 1: Argument Classification
+- Classify each argument in the essay into one of the following categories: "MajorClaim"(M), "Claim"(C) or "Premise"(P).
+- MajorClaim (M): The main stance or position that the author wants to prove in the essay. Usually appears in the introduction and/or conclusion.
+- Claim (C): A statement that directly supports or attacks the major claim. Claims are controversial assertions that require further evidence.
+- Premise (P): A reason or evidence that directly supports or attacks a claim or another premise.
+- You must return a list of argument types in following JSON format: {"argument_types": [argument_types (str), argument_types (str), ..., argument_types (str)]}
+
+TASK 2: Argument Relations Identification and Classification
+- Identify relationships between arguments by determining which arguments support or attack other arguments.
+- For each related argument pair, classify the relationship as either: "Support"(S) or "Attack"(A).
+- IMPORTANT: Only arguments that appear in the same line in the essay can be related.
+- You must return a list of triplets in the following JSON format: {"argument_relations": [(target_index (int), source_index (int), relation_type (str)), (target_index (int), source_index (int), relation_type (str)), ...]}
+- Note: Indices are 1-based, referring to the position in the provided arguments list.
+
+Example:
+
+### Output:
+{"argument_types": ['M', 'M', 'C', 'P', 'P', 'P', 'C', 'P', 'P', 'P', 'C']}
+{"argument_relations": [(4, 3, 'S'), (5, 3, 'A'), (6, 3, 'S'), (10, 11, 'S'), (9, 11, 'A'), (8, 7, 'S')]}
+"""
