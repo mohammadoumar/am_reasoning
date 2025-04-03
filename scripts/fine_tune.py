@@ -38,7 +38,7 @@ DATASET_DIR = AMR_DIR / "datasets"
 #ERC_DIR = FT_DIR.parent
 LLAMA_FACTORY_DIR = AMR_DIR / "LLaMA-Factory"
 
-BASE_MODEL = "unsloth/Llama-3.3-70B-Instruct-bnb-4bit"
+BASE_MODEL = "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit"
 LOGGING_DIR = AMR_DIR / "training_logs"
 OUTPUT_DIR = AMR_DIR / "saved_models" / f"""pe_aic_{BASE_MODEL.split("/")[1]}"""
 
@@ -86,7 +86,7 @@ with open(os.path.join(LLAMA_FACTORY_DIR, "data/dataset_info.json"), "w") as jso
 
 # # ************************** TRAIN MODEL ******************************#
 
-NB_EPOCHS = 5
+NB_EPOCHS = 15
 
 args = dict(
     
