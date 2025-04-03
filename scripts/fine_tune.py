@@ -38,7 +38,7 @@ DATASET_DIR = AMR_DIR / "datasets"
 #ERC_DIR = FT_DIR.parent
 LLAMA_FACTORY_DIR = AMR_DIR / "LLaMA-Factory"
 
-BASE_MODEL = "unsloth/Meta-Llama-3.1-70B-Instruct-bnb-4bit"
+BASE_MODEL = "unsloth/Llama-3.3-70B-Instruct-bnb-4bit"
 LOGGING_DIR = AMR_DIR / "training_logs"
 OUTPUT_DIR = AMR_DIR / "saved_models" / f"""pe_pipeline_prompt3_c_{BASE_MODEL.split("/")[1]}"""
 
