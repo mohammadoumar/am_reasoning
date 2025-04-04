@@ -38,9 +38,9 @@ DATASET_DIR = AMR_DIR / "datasets"
 #ERC_DIR = FT_DIR.parent
 LLAMA_FACTORY_DIR = AMR_DIR / "LLaMA-Factory"
 
-BASE_MODEL = "unsloth/Meta-Llama-3.1-70B-Instruct-bnb-4bit"
+BASE_MODEL = "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit"
 LOGGING_DIR = AMR_DIR / "training_logs"
-OUTPUT_DIR = AMR_DIR / "saved_models" / f"""pe_pipeline_p3new_{BASE_MODEL.split("/")[1]}"""
+OUTPUT_DIR = AMR_DIR / "saved_models" / f"""pe_pipeline_p4_{BASE_MODEL.split("/")[1]}"""
 
 
 
@@ -49,8 +49,8 @@ OUTPUT_DIR = AMR_DIR / "saved_models" / f"""pe_pipeline_p3new_{BASE_MODEL.split(
 
 # # *** TRAIN/TEST DATASET NAME/FILENAME *** #
 
-train_dataset_name = f"""pe_pipeline_prompt3_newdf_train.json"""
-test_dataset_name = f"""pe_pipeline_prompt3_newdf_test.json"""
+train_dataset_name = f"""pe_pipeline_prompt4para_train.json"""
+test_dataset_name = f"""pe_pipeline_prompt4para_test.json"""
 
 train_dataset_file = DATASET_DIR / train_dataset_name
 test_dataset_file = DATASET_DIR / test_dataset_name
