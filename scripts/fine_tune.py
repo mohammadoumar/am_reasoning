@@ -38,9 +38,9 @@ DATASET_DIR = AMR_DIR / "datasets"
 #ERC_DIR = FT_DIR.parent
 LLAMA_FACTORY_DIR = AMR_DIR / "LLaMA-Factory"
 
-BASE_MODEL = "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit"
+BASE_MODEL = "unsloth/Meta-Llama-3.1-70B-Instruct-bnb-4bit"
 LOGGING_DIR = AMR_DIR / "training_logs"
-OUTPUT_DIR = AMR_DIR / "saved_models" / f"""pe_aic_{BASE_MODEL.split("/")[1]}"""
+OUTPUT_DIR = AMR_DIR / "saved_models" / f"""pe_pipeline_p3new_{BASE_MODEL.split("/")[1]}"""
 
 
 
@@ -49,8 +49,8 @@ OUTPUT_DIR = AMR_DIR / "saved_models" / f"""pe_aic_{BASE_MODEL.split("/")[1]}"""
 
 # # *** TRAIN/TEST DATASET NAME/FILENAME *** #
 
-train_dataset_name = f"""pe_aic_train.json"""
-test_dataset_name = f"""pe_aic_test.json"""
+train_dataset_name = f"""pe_pipeline_prompt3_newdf_train.json"""
+test_dataset_name = f"""pe_pipeline_prompt3_newdf_test.json"""
 
 train_dataset_file = DATASET_DIR / train_dataset_name
 test_dataset_file = DATASET_DIR / test_dataset_name
@@ -78,7 +78,7 @@ dataset_info_line =  {
 with open(os.path.join(LLAMA_FACTORY_DIR, "data/dataset_info.json"), "r") as jsonFile:
     data = json.load(jsonFile)
 
-data["pe_aic"] = dataset_info_line
+data["pe_pipeline"] = dataset_info_line
 
 with open(os.path.join(LLAMA_FACTORY_DIR, "data/dataset_info.json"), "w") as jsonFile:
     json.dump(data, jsonFile)
@@ -98,7 +98,7 @@ args = dict(
   output_dir=str(OUTPUT_DIR),                 # the path to save LoRA adapters
   overwrite_output_dir=True,             # overrides existing output contents
 
-  dataset="pe_aic",                      # dataset name
+  dataset="pe_pipeline",                      # dataset name
   template="llama3",                     # use llama3 prompt template
   #train_on_prompt=True,
   val_size=0.1,
