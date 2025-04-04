@@ -2,7 +2,7 @@
   "stage": "sft",
   "do_train": true,
   "model_name_or_path": "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit",
-  "num_train_epochs": 15,
+  "num_train_epochs": 5,
   "output_dir": "/Utilisateurs/umushtaq/am_reasoning/saved_models/pe_pipeline_p4_Meta-Llama-3.1-8B-Instruct-bnb-4bit",
   "overwrite_output_dir": true,
   "dataset": "pe_pipeline",
