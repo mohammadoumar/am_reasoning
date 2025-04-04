@@ -117,7 +117,13 @@ TASK 1: Argument Classification
 - Premise (P): A reason or evidence that directly supports or attacks a claim or another premise.
 - You must return a list of argument types in following JSON format: {"argument_types": [argument_types (str), argument_types (str), ..., argument_types (str)]}
 
-TASK 2: Argument Relations Identification and Classification
+TASK 2: Claim Stance Classification
+- Classify each claim as either supporting (S) or attacking (A) the major claims.
+- You must return a list of claim stances in following JSON format: {"claim_stances": [claim_stance (str), claim_stance (str), ..., claim_stance (str)]}
+- IMPORTANT: The length of the list must be exactly equal to the number of claims.
+
+
+TASK 3: Argument Relations Identification and Classification
 - Identify relationships between arguments by determining which arguments support or attack other arguments.
 - For each related argument pair, classify the relationship as either: "Support"(S) or "Attack"(A).
 - IMPORTANT: Only arguments that appear in the same line in the essay can be related.
@@ -128,18 +134,15 @@ Example:
 
 ### Output:
 {"argument_types": ['M', 'M', 'C', 'P', 'P', 'P', 'C', 'P', 'P', 'P', 'C']}
+{"claim_stances": ['S', 'A', 'S']}
 {"argument_relations": [(4, 3, 'S'), (5, 3, 'A'), (6, 3, 'S'), (10, 11, 'S'), (9, 11, 'A'), (8, 7, 'S')]}
 
 """
 
 Add: 
 
-{"relation_types": {"Paragraph1" : [],
-                "Paragraph2" : [((4, 3), 'S'), ((5, 3), 'S'), ((6, 3), 'S')],
-                "Paragraph_3" : [((8, 7), 'S')],
-                "Paragraph_4" : [((10, 11), 'S'), ((9, 11), 'S')]}}
-
-                {"relation_types": {"Paragraph1" : [],
-                "Paragraph2" : [(4, 3, 'S'), (5, 3, 'S'), (6, 3, 'S')],
+{"relation_types": {"Paragraph_1" : [],
+                "Paragraph_2" : [(4, 3, 'S'), (5, 3, 'S'), (6, 3, 'S')],
                 "Paragraph_3" : [(8, 7, 'S')],
-                "Paragraph_4" : [(10, 11, 'S'), (9, 11, 'S')]}}
+                "Paragraph_4" : [(10, 11, 'S'), (9, 11, 'S')],
+                "Paragraph_5: : []}}

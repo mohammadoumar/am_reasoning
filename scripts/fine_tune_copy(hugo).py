@@ -1,4 +1,4 @@
-# ***************** Fine-Tuning LLMs on Comics dataset *********************** #
+# ***************** Fine-Tuning LLMs on PE dataset *********************** #
 
 # ********** Libraries and GPU *************
 
@@ -19,7 +19,6 @@ from tqdm import tqdm
 from llamafactory.chat import ChatModel # type: ignore
 from llamafactory.extras.misc import torch_gc # type: ignore
 from sklearn.metrics import classification_report
-#from utils.post_processing import post_process
 
 try:    
     assert torch.cuda.is_available() is True
@@ -31,11 +30,12 @@ except AssertionError:
 
 # ************** PATH SETTINGS *************
 
+# Define these according to your system
+
 CURRENT_DIR = Path.cwd()
 AMR_DIR = CURRENT_DIR.parent
 DATASET_DIR = AMR_DIR / "datasets"
 
-#ERC_DIR = FT_DIR.parent
 LLAMA_FACTORY_DIR = AMR_DIR / "LLaMA-Factory"
 
 BASE_MODEL = "unsloth/Meta-Llama-3.1-70B-Instruct-bnb-4bit"
@@ -49,8 +49,8 @@ OUTPUT_DIR = AMR_DIR / "saved_models" / f"""pe_pipeline_p3new_{BASE_MODEL.split(
 
 # # *** TRAIN/TEST DATASET NAME/FILENAME *** #
 
-train_dataset_name = f"""pe_pipeline_prompt3_newdf_train.json"""
-test_dataset_name = f"""pe_pipeline_prompt3_newdf_test.json"""
+train_dataset_name = f"""pe_pipeline_train.json""" # train file goes here
+test_dataset_name = f"""pe_pipeline_test.json""" # test file goes here
 
 train_dataset_file = DATASET_DIR / train_dataset_name
 test_dataset_file = DATASET_DIR / test_dataset_name
@@ -62,7 +62,6 @@ if not os.path.exists(os.path.join(AMR_DIR, "model_args")):
     os.mkdir(os.path.join(AMR_DIR, "model_args"))
 
 train_file = AMR_DIR / "model_args" / f"""{train_dataset_name.split(".")[0].split("train")[0]}{BASE_MODEL.split("/")[1]}.json"""
-#print(train_file)
 
 # *** UPDATE dataset_info.json file in LLaMA-Factory *** #
 
@@ -125,7 +124,6 @@ args = dict(
   save_steps=5000,                       # save checkpoint every 1000 steps    
   logging_dir=str(LOGGING_DIR),
   
-  # use_unsloth=True,
   report_to="none"                       # discards wandb
 
 )
@@ -148,12 +146,8 @@ args = dict(
   
   finetuning_type="lora",                  # same to the one in training
   quantization_bit=4,                    # load 4-bit quantized model
-  #device_map="auto"
 )
 
-# if torch.cuda.is_available():
-    
-#     device = torch.device("cuda")
     
 model = ChatModel(args)#.to(device) # type: ignore
 
@@ -182,9 +176,7 @@ for prompt in tqdm(test_prompts):
     response = ""
     
     for new_text in model.stream_chat(messages):
-        #print(new_text, end="", flush=True)
         response += new_text
-        #print()
     test_predictions.append(response)
 
     torch_gc()
