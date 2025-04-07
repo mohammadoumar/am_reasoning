@@ -185,3 +185,4 @@ cython_debug/
 **/*.pyc
 
 /FS150T
+**/raw_files
