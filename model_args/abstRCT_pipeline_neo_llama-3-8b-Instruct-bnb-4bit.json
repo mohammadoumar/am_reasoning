@@ -1,9 +1,9 @@
 {
   "stage": "sft",
   "do_train": true,
-  "model_name_or_path": "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit",
+  "model_name_or_path": "unsloth/llama-3-8b-Instruct-bnb-4bit",
   "num_train_epochs": 5,
-  "output_dir": "/Utilisateurs/umushtaq/am_reasoning/abstRCT/saved_models/abstRCT_pipeline_Meta-Llama-3.1-8B-Instruct-bnb-4bit",
+  "output_dir": "/Utilisateurs/umushtaq/am_reasoning/abstRCT/saved_models/abstRCT_pipeline_llama-3-8b-Instruct-bnb-4bit",
   "overwrite_output_dir": true,
   "dataset": "abstRCT_pipeline",
   "template": "llama3",

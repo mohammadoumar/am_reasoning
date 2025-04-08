@@ -1,22 +1,22 @@
 ---
 library_name: peft
 license: other
-base_model: unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit
+base_model: unsloth/llama-3-8b-Instruct-bnb-4bit
 tags:
 - llama-factory
 - lora
 - generated_from_trainer
 model-index:
-- name: abstRCT_pipeline_Meta-Llama-3.1-8B-Instruct-bnb-4bit
+- name: abstRCT_pipeline_llama-3-8b-Instruct-bnb-4bit
   results: []
 ---
 
 <!-- This model card has been generated automatically according to the information the Trainer had access to. You
 should probably proofread and complete it, then remove this comment. -->
 
-# abstRCT_pipeline_Meta-Llama-3.1-8B-Instruct-bnb-4bit
+# abstRCT_pipeline_llama-3-8b-Instruct-bnb-4bit
 
-This model is a fine-tuned version of [unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit](https://huggingface.co/unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit) on the abstRCT_pipeline dataset.
+This model is a fine-tuned version of [unsloth/llama-3-8b-Instruct-bnb-4bit](https://huggingface.co/unsloth/llama-3-8b-Instruct-bnb-4bit) on the abstRCT_pipeline dataset.
 
 ## Model description
 

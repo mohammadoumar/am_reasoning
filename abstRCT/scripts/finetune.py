@@ -38,7 +38,7 @@ DATASET_DIR = AMR_DIR / "abstRCT" / "datasets"
 
 LLAMA_FACTORY_DIR = AMR_DIR / "LLaMA-Factory"
 
-BASE_MODEL = "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit"
+BASE_MODEL = "unsloth/llama-3-8b-Instruct-bnb-4bit"
 LOGGING_DIR = AMR_DIR / "abstRCT" / "training_logs"
 OUTPUT_DIR = AMR_DIR / "abstRCT" / "saved_models" / f"""abstRCT_pipeline_{BASE_MODEL.split("/")[1]}"""
 
@@ -85,7 +85,7 @@ with open(os.path.join(LLAMA_FACTORY_DIR, "data/dataset_info.json"), "w") as jso
 
 # # ************************** TRAIN MODEL ******************************#
 
-NB_EPOCHS = 1
+NB_EPOCHS = 5
 
 args = dict(
     
