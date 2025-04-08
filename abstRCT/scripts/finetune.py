@@ -38,7 +38,7 @@ DATASET_DIR = AMR_DIR / "abstRCT" / "datasets"
 
 LLAMA_FACTORY_DIR = AMR_DIR / "LLaMA-Factory"
 
-BASE_MODEL = "unsloth/llama-3-8b-Instruct-bnb-4bit"
+BASE_MODEL = "unsloth/Qwen2.5-14B-Instruct-bnb-4bit"
 LOGGING_DIR = AMR_DIR / "abstRCT" / "training_logs"
 OUTPUT_DIR = AMR_DIR / "abstRCT" / "saved_models" / f"""abstRCT_pipeline_{BASE_MODEL.split("/")[1]}"""
 
@@ -98,7 +98,7 @@ args = dict(
   overwrite_output_dir=True,             # overrides existing output contents
 
   dataset="abstRCT_pipeline",                      # dataset name
-  template="llama3",                     # use llama3 prompt template
+  template="qwen",                     # use llama3 prompt template
   #train_on_prompt=True,
   val_size=0.1,
   max_samples=10000,                       # use 500 examples in each dataset
@@ -142,7 +142,7 @@ p.wait()
 args = dict(
   model_name_or_path=BASE_MODEL, # use bnb-4bit-quantized Llama-3-8B-Instruct model
   adapter_name_or_path=str(OUTPUT_DIR),            # load the saved LoRA adapters
-  template="llama3",                     # same to the one in training
+  template="qwen",                     # same to the one in training
   finetuning_type="lora",                  # same to the one in training
   quantization_bit=4,                    # load 4-bit quantized model
 )
@@ -165,7 +165,7 @@ for test_set in ['neo', 'gla', 'mix']:
     test_grounds = []
     
     for sample in test_dataset:
-        test_prompts.append("\nUser:" + sample["instruction"] + sample["input"])
+        test_prompts.append(sample["instruction"] + sample["input"])
         test_grounds.append(sample["output"])
     
     
@@ -174,7 +174,7 @@ for test_set in ['neo', 'gla', 'mix']:
     for prompt in tqdm(test_prompts):
     
         messages = []
-        messages.append({"role": "user", "content": prompt})
+        messages.append(prompt)
     
         response = ""
         
