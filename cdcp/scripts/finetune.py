@@ -38,7 +38,7 @@ DATASET_DIR = CDCP_DIR / "datasets"
 #ERC_DIR = FT_DIR.parent
 LLAMA_FACTORY_DIR = CDCP_DIR.parent / "LLaMA-Factory"
 
-BASE_MODEL = "unsloth/Meta-Llama-3.1-70B-Instruct-bnb-4bit"
+BASE_MODEL = "unsloth/llama-3-8b-Instruct-bnb-4bit"
 LOGGING_DIR = CDCP_DIR / "training_logs"
 OUTPUT_DIR = CDCP_DIR / "saved_models" / f"""cdcp_pipeline_{BASE_MODEL.split("/")[1]}"""
 
